@@ -16,6 +16,7 @@ const useStyles = makeStyles(theme => ({
     margin: "0px auto",
     paddingLeft: 108,
     paddingRight: 108,
+    borderTop: "10px solid #FDC10E",
     "& > .MuiToolbar-gutters": {
       padding: 0
     },
@@ -41,7 +42,7 @@ const useStyles = makeStyles(theme => ({
   flex: {
     display: "flex", 
     "& .MuiIconButton-root": {
-      marginRight: 48,
+      marginLeft: 48,
     },   
   }
 }))

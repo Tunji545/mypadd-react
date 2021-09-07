@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
   flex: {
     display: "flex",
     "& .MuiTypography-h6": {
-      marginRight: 48,
+      marginLeft: 48,
       fontFamily: "Montserrat, sans-serif",
       fontSize: 16,
       "&:hover": {
@@ -70,7 +70,7 @@ const Navbar = () => {
       <AppBar position="static" className={classes.root}>
         <Toolbar>
           <IconButton>
-            <Link to="/"><Logo fontSize="large" /></Link>
+            <Link to="/"><Logo size="large" /></Link>
           </IconButton>
           <span className={classes.flex}>
             <IconButton color="inherit">
