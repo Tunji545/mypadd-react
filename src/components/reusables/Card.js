@@ -10,8 +10,14 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginRight: 24,
-    width: 392
+    flexGrow: 1,
+    width: 392,
+    margin: "0 24px 24px 0",
+    [theme.breakpoints.down('md')]: {
+      "&": {
+        width: 250
+      }
+    }
   },
   eventImg: {
     height: 0,
