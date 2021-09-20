@@ -10,13 +10,13 @@ const theme = createTheme({
   },
 });
 
-const Button = ({variant, color, size, label}) => {
+const Button = ({variant, color, size, children, ...rest}) => {
 
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <MuiButton variant={variant} color={color} size={size}>
-          {label}
+        <MuiButton variant={variant} color={color} size={size} {...rest}>
+          { children }
         </MuiButton>
       </ThemeProvider>
     </div>

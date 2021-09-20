@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     width: 392,
-    margin: "0 24px 24px 0",
+    // margin: "0 24px 24px 0",
     [theme.breakpoints.down('md')]: {
       "&": {
         width: 250
