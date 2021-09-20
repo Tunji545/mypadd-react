@@ -14,7 +14,6 @@ import { people } from '../utils/data';
 import { Crowds } from '../utils/data';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
-import MapRight from "../images/map.svg";
 
 const useStyles = makeStyles(theme => ({
   root: {
