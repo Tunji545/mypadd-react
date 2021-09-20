@@ -14,6 +14,7 @@ import { people } from '../utils/data';
 import { Crowds } from '../utils/data';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
+import MapRight from "../images/map.svg";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -207,6 +208,7 @@ const useStyles = makeStyles(theme => ({
   },
   flex3: {
     display: "flex",
+    gap: 24,
     [theme.breakpoints.down('md')]: {
       "&": {
         flexWrap: "wrap",
@@ -246,6 +248,7 @@ const useStyles = makeStyles(theme => ({
   },
   flex1: {
     display: "flex",
+    gap: 24,
     position: "relative",
     bottom: 115,
     [theme.breakpoints.down('md')]: {
@@ -284,7 +287,10 @@ const useStyles = makeStyles(theme => ({
     minHeight: 214,
   },
   imageItem: {
-    flexGrow: 2
+    flexGrow: 2,
+    "& .MuiImageListItem-item":{
+      // height: 100
+    }
   },
   chainBg: {
     position: "relative",
@@ -323,11 +329,14 @@ const Home = () => {
                 <IconButton color="inherit" className={classes.right}>
                   <ArrowRight  />
                 </IconButton>
-                <Button variant="contained" color="primary" size="medium" label="Learn more" />
+                <Button variant="contained" color="primary" size="medium">
+                  Learn more
+                </Button>
                 <IconButton color="inherit" className={classes.row}>
                   <CircleRow  />
                 </IconButton>
               </Grid>
+              
             </Grid>
           </Box>
         </Container>
@@ -337,13 +346,16 @@ const Home = () => {
           <Box className={classes.bg2}>
             <Box className={classes.row2}>
               <Grid container>
-                <Grid item xs="12" sm="6">
+                <Grid item xs="12" sm={5}>
                   <Typography variant="h2" gutterBottom className={classes.par2}>
                       Worlds No. 1 Excellence Network 
                   </Typography>
                   <Typography variant="body2" gutterBottom className={classes.par3}>
                     We recognize the Most Influential People of African Descent yearly. 
                   </Typography>
+                </Grid>
+                <Grid item xs={12} sm={7}>
+                  {/* <img src={MapRight} alt="" /> */}
                 </Grid>
               </Grid>
             </Box>
@@ -371,21 +383,23 @@ const Home = () => {
         <Container maxWidth="lg">
           <Box className={classes.bg4}>
             <Grid container>
-              <Grid items xs="12" sm="4" className={classes.flex2}>
+              <Grid item xs="12" sm="4" className={classes.flex2}>
                 <Typography variant="h2" gutterBottom className={classes.par}>
                   Honourees 
                 </Typography>
                 <Typography variant="body2" gutterBottom className={classes.par5}>
                   We recognize the Most Influential People of African Descent yearly. 
                 </Typography>
-                <Button variant="contained" color="primary" size="medium" label="Nominate now" className={classes.btn} />
+                <Button variant="contained" color="primary" size="medium"className={classes.btn}>
+                  Nominate
+                </Button>
               </Grid>
-              <Grid items xs="12" sm="8"className={classes.gallery}>
+              <Grid item xs="12" sm="8"className={classes.gallery}>
                   <Box className={classes.root}>
                     <ImageList rowHeight="auto" gap={24} className={classes.imageList} cols={12}>
-                      {people.map((person, index) => (
-                        <ImageListItem key={index} cols={4 || 6} className={classes.imageItem}>
-                          <img src={person} alt="" />
+                      {people.map(person => (
+                        <ImageListItem key={person.id} cols={4} style={{maxHeight: person.height}} className={classes.imageItem}>
+                          <img src={person.img} alt="" />
                         </ImageListItem>
                       ))}
                     </ImageList>
@@ -400,16 +414,16 @@ const Home = () => {
       </Box>
       <Box className={classes.bg3Box}>
         <Container maxWidth="lg">
-          <div className={classes.bg3}>
-            <div>
+          <Box className={classes.bg3}>
+            <Box>
               <Typography variant="h1" gutterBottom className={classes.par4}>Feature posts</Typography>
-            </div>
-            <div className={classes.flex3}>
+            </Box>
+            <Box className={classes.flex3}>
               {Crowds.map(crowd => (
                 <Card key={crowd.id} className={classes.eventImg1} renderBg={crowd.img} heading={crowd.heading} renderCalIcon={() => ""}  calText={crowd.text} renderClockIcon={() => ""} clockText="" renderLocationIcon={() => ""} locationText=""  /> 
               ))}
-            </div>
-          </div>
+            </Box>
+          </Box>
         </Container>
       </Box>
     </>
