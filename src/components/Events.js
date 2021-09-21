@@ -265,7 +265,7 @@ const Events = () => {
       <Box className={classes.btn3}>
         <Container maxWidth="lg">
           <Grid container>
-            <Grid item xs="12" sm="16">
+            <Grid item xs="12">
               <Typography variant="h2" gutterBottom className={classes.heading1}>
                 Upcoming Events
               </Typography>
