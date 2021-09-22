@@ -14,6 +14,7 @@ import { people } from '../utils/data';
 import { Crowds } from '../utils/data';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
+import MapRight from "../images/map.svg"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -142,8 +143,15 @@ const useStyles = makeStyles(theme => ({
   row2: {
     padding: "233px 0px",
     margin: "0 auto",
+    position: "relative",
     [theme.breakpoints.down('sm')]: {
       padding: "150px 0px"
+    },
+  },
+  zIndex: {
+    zIndex: 4,
+    [theme.breakpoints.down('sm')]: {
+      zIndex: 0
     },
   },
   par2: {
@@ -153,7 +161,13 @@ const useStyles = makeStyles(theme => ({
     letterSpacing: "0em",
     [theme.breakpoints.down('md')]: {
       fontSize: "2rem"
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: "1.75rem"
     },  
+    [theme.breakpoints.down('xs')]: {
+      fontSize: "1.5rem"
+    },
   },
   par: {
     fontSize: "2.5rem",
@@ -173,6 +187,9 @@ const useStyles = makeStyles(theme => ({
     lineHeight: "30px",
     letterSpacing: "0em",  
     paddingTop: theme.spacing(5),
+    [theme.breakpoints.down('sm')]: {
+      fontSize: "1rem"
+    },
   },
   par5: {
     fontSize: "1.25rem",
@@ -304,6 +321,21 @@ const useStyles = makeStyles(theme => ({
         top: 50
       }
     }
+  },
+  right1: {
+    position: "absolute",
+    right: 0,
+    [theme.breakpoints.down('md')]: {
+      width: 700
+    },
+    [theme.breakpoints.down('sm')]: {
+      width: 580,
+      position: "relative",
+      paddingTop: theme.spacing(5)
+    },
+    [theme.breakpoints.down('xs')]: {
+      width: 340
+    },
   }
 }))
 
@@ -345,7 +377,7 @@ const Home = () => {
           <Box className={classes.bg2}>
             <Box className={classes.row2}>
               <Grid container>
-                <Grid item xs="12" sm={5}>
+                <Grid item xs={12} md={5} className={classes.zIndex}>
                   <Typography variant="h2" gutterBottom className={classes.par2}>
                       Worlds No. 1 Excellence Network 
                   </Typography>
@@ -353,8 +385,8 @@ const Home = () => {
                     We recognize the Most Influential People of African Descent yearly. 
                   </Typography>
                 </Grid>
-                <Grid item xs={12} sm={7}>
-                  {/* <img src={MapRight} alt="" /> */}
+                <Grid item xs={12} md={7}>
+                  <img src={MapRight} alt="" className={classes.right1} />
                 </Grid>
               </Grid>
             </Box>
