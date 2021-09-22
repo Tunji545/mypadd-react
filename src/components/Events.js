@@ -4,7 +4,7 @@ import Button from './reusables/Button';
 import EvBgImage1 from "../images/ev-bg-image1.svg";
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
-import { loopText, pastEventCards, upEvents } from '../utils/data';
+import { pastEventCards, upEvents } from '../utils/data';
 import Card from './reusables/Card';
 
 
@@ -311,9 +311,6 @@ const Events = () => {
                           </ImageListItem>
                         </Box>
                       ))};
-                      {/* {loopText.map(text => (
-                        
-                      ))} */}
                   </ImageList>
                 </Box>
             </Grid>
