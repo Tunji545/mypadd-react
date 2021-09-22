@@ -59,61 +59,65 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "center",
     marginTop: theme.spacing(29),
     background: "#000000",
-    padding: theme.spacing(3.875, 5.375, 3.875, ),
+    padding: theme.spacing(3.875, 5.375, 3.875, 5.375),
     borderTop: "5px solid #FDC10E",
     borderRight: "5px solid #FDC10E",
   },
   box: {
     color: "#ffffff",
-    paddingLeft: theme.spacing(23.375),
-    paddingRight: theme.spacing(23.375),
+    paddingLeft: theme.spacing(17.5),
+    paddingRight: theme.spacing(17.5),
     display: "flex",
     alignItems: "center",
     fontFamily: "Montserrat",
     fontWeight: 600,
     letterSpacing: "0em",
-    // [theme.breakpoints.down('lg')]: {
-    //   paddingLeft: 130,
-    //   paddingRight: 130,
-    // },
+    [theme.breakpoints.down('sm')]: {
+      paddingLeft: theme.spacing(7.5),
+      paddingRight: theme.spacing(7.5),
+    },
   },
   bold: {
     fontSize: "2.5rem",
     paddingBottom: 2,
-    // [theme.breakpoints.down('lg')]: {
-    //   fontSize: 35,
-    // },
-    // [theme.breakpoints.down('md')]: {
-    //   fontSize: 30
-    // },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: "1.25rem",
+    },
   },
   light: {
     fontSize: "0.875rem",
+    [theme.breakpoints.down('sm')]: {
+      fontSize: "0.625rem",
+    },
   },
   dot: {
     fontSize: "2.5rem",
     lineHeight: "60px",
     letterSpacing: "0em",
-    paddingLeft: theme.spacing(5),
-    paddingRight: theme.spacing(5.125),
+    paddingLeft: theme.spacing(3.5),
+    paddingRight: theme.spacing(3.5),
     position: "relative",
     bottom: 20,
-    // [theme.breakpoints.down('lg')]: {
-    //   paddingLeft: 35,
-    //   paddingRight: 35,
-    // },
-    // [theme.breakpoints.down('md')]: {
-    //   paddingLeft: 30,
-    //   paddingRight: 30,
-    // },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: "1.75rem",
+      paddingLeft: theme.spacing(2.5),
+      paddingRight: theme.spacing(2.5),
+    },
   },
   btn1: {
     fontSize: "1.5rem",
     fontWeight: 600,
-    padding: "16px 32px",
+    padding: "8px 32px",
     [theme.breakpoints.down('md')]: {
       fontSize: "1.25rem",
-      padding: "10px 20px"
+      padding: "8px 20px"
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: "1rem",
+      padding: "8px 16px"
+    },
+    [theme.breakpoints.down('xs')]: {
+      opacity: 0
     },
   },
   btn2: {
@@ -127,6 +131,13 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('md')]: {
       fontSize: "1rem",
       padding: "10px 20px"
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: "0.75rem",
+      padding: "8px 16px"
+    },
+    [theme.breakpoints.down('xs')]: {
+      opacity: 0
     },
   },
   btn3: {
@@ -158,26 +169,28 @@ const useStyles = makeStyles(theme => ({
     letterSpacing: "0em",
     color: "#7C7666"
   },
-  root: {
+  parent: {
     display: 'flex',
     flexWrap: 'wrap',
     overflow: 'hidden',
   },
-  imageList: {
-    height: 390
-  },
-  imageItem: {
+  root: {
     flexGrow: 1
   },
   imageList2: {
+
     "& .MuiIconButton-root": {
       padding: 0
+    },
+    "& .MuiListSubheader-gutters": {
+      paddingLeft: 0,
+      paddingRight: 0
     }
   },
   row1: {
     display: "flex",
     alignItems: "flex-start",
-    padding: 10
+    // padding: 10
   },
   flex3: {
     display: "flex",
@@ -265,7 +278,7 @@ const Events = () => {
       <Box className={classes.btn3}>
         <Container maxWidth="lg">
           <Grid container>
-            <Grid item xs="12" sm="16">
+            <Grid item xs="12">
               <Typography variant="h2" gutterBottom className={classes.heading1}>
                 Upcoming Events
               </Typography>
@@ -274,32 +287,33 @@ const Events = () => {
               </Typography>
             </Grid>
             <Grid items xs="12">
-                <Box className={classes.root}>
+                <Box className={classes.parent}>
                   <ImageList rowHeight="auto" gap={24} cols={12}>
                       {upEvents.map((event, index) => (
-                        <ImageListItem key={index} cols={getCurrentSize()}>
-                          <img src={event.img} alt="event.subTitle" />
-                          <ImageListItemBar
-                            title={event.title}
-                            subtitle={event.subTitle}
-                          />
-                        </ImageListItem>
-                      ))};
-                      {loopText.map(text => (
-                        <ImageListItem cols={3} className={classes.imageList2} style={{height: "auto",padding: 0}}>  
-                          <ListSubheader component="div">
-                            {text.imageText}
-                          </ListSubheader>
-                          <Box className={classes.row1}>                       
-                            <IconButton color="inherit">
-                              {<text.img />}
-                            </IconButton>
+                        <Box cols={getCurrentSize()} style={{width: "248px"}}  className={classes.root}>
+                          <ImageListItem key={index}>
+                            <img src={event.img} alt="event.subTitle" />
+                            <ImageListItemBar
+                              title={event.title}
+                              subtitle={event.subTitle}
+                            />
+                          </ImageListItem>
+                          <ImageListItem className={`${classes.imageList2}`}>  
                             <ListSubheader component="div">
-                              {text.imageText1}
+                              <Typography>{event.imageText}</Typography>
+                              <Box className={classes.row1}>                       
+                                <IconButton color="inherit">
+                                  {<event.img1 />}
+                                </IconButton>
+                                <Typography>{event.imageText1}</Typography>
+                              </Box>
                             </ListSubheader>
-                          </Box>
-                        </ImageListItem>
-                      ))}
+                          </ImageListItem>
+                        </Box>
+                      ))};
+                      {/* {loopText.map(text => (
+                        
+                      ))} */}
                   </ImageList>
                 </Box>
             </Grid>

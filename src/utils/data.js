@@ -159,48 +159,39 @@ export const upEvents = [
     img: upEvent1,
     title: time,
     subTitle: subTitle,
+    id: 1,
+    imageText: imageText,
+    imageText1: imageText1,
+    img1: Location 
   },
   {
     img: upEvent2,
     title: time,
     subTitle: subTitle,
+    id: 2,
+    imageText: imageText,
+    imageText1: imageText2,
+    img1: Location 
+
   },
   {
     img: upEvent3,
     title: time,
     subTitle: subTitle,
+    id: 3,
+    imageText: imageText,
+    imageText1: imageText3,
+    img1: Location
   },
   {
     img: upEvent4,
     title: time,
     subTitle: subTitle,
-  }
-];
-export const loopText = [
-  {
-    id: 1,
-    imageText: imageText,
-    imageText1: imageText1,
-    img: Location 
-  },
-  {
-    id: 2,
-    imageText: imageText,
-    imageText1: imageText2,
-    img: Location 
-  },
-  {
-    id: 3,
-    imageText: imageText,
-    imageText1: imageText3,
-    img: Location 
-  },
-  {
     id: 4,
     imageText: imageText,
     imageText1: imageText4,
-    img: Location 
-  },
+    img1: Location
+  }
 ];
 
 export const HonoreesTexts = [
