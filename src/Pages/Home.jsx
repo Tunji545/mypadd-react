@@ -1,20 +1,23 @@
 import React from 'react'
 import { Box, Container, Grid, IconButton, makeStyles, Typography } from '@material-ui/core';
 import BgImage from "../images/bg-1.svg";
-import Button from './reusables/Button';
+import Button from '../reusables/button';
 import {ReactComponent as ArrowLeft} from "../images/arrow-left.svg";
 import {ReactComponent as ArrowRight} from "../images/arrow-right.svg";
 import {ReactComponent as CircleRow} from "../images/row.svg";
 import {ReactComponent as Mapp} from "../images/map.svg";
 import {ReactComponent as MapCol} from "../images/mapCol.svg";
 import { eventCards } from '../utils/data';
-import Card from './reusables/Card';
+import Card from '../reusables/card';
 import { ReactComponent as ChainBg } from "../images/chainBg.svg";
-import { people } from '../utils/data';
 import { Crowds } from '../utils/data';
-import ImageList from '@material-ui/core/ImageList';
-import ImageListItem from '@material-ui/core/ImageListItem';
 import MapRight from "../images/map.svg"
+import Female1 from "../images/female1.svg";
+import Male2 from "../images/male2.svg";
+import Male3 from "../images/male3.svg";
+import Male4 from "../images/male4.svg";
+import Female5 from "../images/female5.svg";
+import Female6 from "../images/female6.svg";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -340,11 +343,11 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const Home = () => {
-
+  
   const classes = useStyles();
-
-  return (
-    <>
+  
+  function renderHomeHeaderSection() {
+    return (
       <Box className={classes.bg1Image}>
         <Container maxWidth="lg">
           <Box className={classes.bg1}>
@@ -366,12 +369,16 @@ const Home = () => {
                 <IconButton color="inherit" className={classes.row}>
                   <CircleRow  />
                 </IconButton>
-              </Grid>
-              
+              </Grid>   
             </Grid>
           </Box>
         </Container>
       </Box>
+    )
+  }
+
+  function renderHomeDarkBgSection() {
+    return (
       <Box className={classes.bg2Dark}>
         <Container maxWidth="lg">
           <Box className={classes.bg2}>
@@ -393,6 +400,11 @@ const Home = () => {
           </Box>
         </Container>
       </Box>
+    )
+  }
+
+  function renderHomeEventsSection() {
+    return (
       <Box className={classes.bg3Box}>
         <Container maxWidth="lg">
           <Box className={classes.bg3}>
@@ -410,6 +422,11 @@ const Home = () => {
           </Box>
         </Container>
       </Box>
+    )
+  }
+
+  function renderHomeHonoreesSection() {
+    return (
       <Box className={classes.bg2Dark1}>
         <Container maxWidth="lg">
           <Box className={classes.bg4}>
@@ -426,7 +443,39 @@ const Home = () => {
                 </Button>
               </Grid>
               <Grid item xs="12" sm="8"className={classes.gallery}>
-                  <Box className={classes.root}>
+                <Grid container spacing={6}>
+                  <Grid item xs={4}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12}>
+                        <img src={Female1} alt="" />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <img src={Female5} alt="" />
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                  <Grid item xs={4}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12}>
+                        <img src={Male2} alt="" />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <img src={Female6} alt="" />
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                  <Grid item xs={4}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12}>
+                        <img src={Male4} alt="" />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <img src={Male3} alt="" />
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+                  {/* <Box className={classes.root}>
                     <ImageList rowHeight="auto" gap={24} className={classes.imageList} cols={12}>
                       {people.map(person => (
                         <ImageListItem key={person.id} cols={4} style={{maxHeight: person.height}} className={classes.imageItem}>
@@ -434,7 +483,7 @@ const Home = () => {
                         </ImageListItem>
                       ))}
                     </ImageList>
-                  </Box>
+                  </Box> */}
               </Grid>
             </Grid>
           </Box>
@@ -443,6 +492,11 @@ const Home = () => {
           <ChainBg />
         </IconButton>
       </Box>
+    )
+  }
+
+  function renderHomeFeaturePostsSection() {
+    return (
       <Box className={classes.bg3Box}>
         <Container maxWidth="lg">
           <Box className={classes.bg3}>
@@ -457,6 +511,16 @@ const Home = () => {
           </Box>
         </Container>
       </Box>
+    )
+  }
+
+  return (
+    <>
+      {renderHomeHeaderSection()}
+      {renderHomeDarkBgSection()}
+      {renderHomeEventsSection()}
+      {renderHomeHonoreesSection()}
+      {renderHomeFeaturePostsSection()}
     </>
   )
 }

@@ -1,26 +1,29 @@
 import React, {useState} from 'react'
 import { Box, Grid, makeStyles, Typography, TextField } from '@material-ui/core';
 import bgImage from "../images/bg-image.svg";
-import Button from './reusables/Button';
+import Button from '../reusables/button';
 
 const useStyles = makeStyles(theme => ({
   bgImage: {
     backgroundImage: `url(${bgImage})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
-    padding: theme.spacing(29, 22, 28.375, 22),
-    margin: theme.spacing(0, "auto"),
+    paddingTop: theme.spacing(29),
+    paddingBottom: theme.spacing(28.378),
+    // padding: theme.spacing(29, 22, 28.375, 22),
+    // margin: theme.spacing(0, "auto"),
     fontFamily: "Montserrat",
     textAlign: "center",
-    [theme.breakpoints.down('md')]: {
-      padding: theme.spacing(29, 17, 28.375, 17),
-    },
-    [theme.breakpoints.down('sm')]: {
-      padding: theme.spacing(29, 27.75, 28.375, 27.75),
-    },
-    [theme.breakpoints.down('xs')]: {
-      padding: theme.spacing(22, 16, 22, 16),
-    },
+    width: "100%"
+    // [theme.breakpoints.down('md')]: {
+    //   padding: theme.spacing(29, 17, 28.375, 17),
+    // },
+    // [theme.breakpoints.down('sm')]: {
+    //   padding: theme.spacing(29, 27.75, 28.375, 27.75),
+    // },
+    // [theme.breakpoints.down('xs')]: {
+    //   padding: theme.spacing(22, 16, 22, 16),
+    // },
   },
   par1: {
     fontSize: "1.25rem",
@@ -87,15 +90,6 @@ const useStyles = makeStyles(theme => ({
   bg2: {
     padding: theme.spacing(17.75, 13.5, 14.75, 16),
     fontFamily: "Montserrat",
-    [theme.breakpoints.down('md')]: {
-      padding: theme.spacing(17.75, 10, 14.75, 12.5),
-    },
-    [theme.breakpoints.down('sm')]: {
-      padding: theme.spacing(17.75, 13.5, 14.75, 16),
-    },
-    [theme.breakpoints.down('xs')]: {
-      padding: theme.spacing(22, 9, 22, 12),
-    },
   },
   par5: {
     fontSize: "2.5rem",
@@ -175,11 +169,11 @@ const Contact = () => {
     })
   }
 
-  return (
-    <Box className={classes.bg}>
-      <Grid container>
-        <Grid item sm={12} md={6}>
-          <Box className={classes.bgImage} justifyContent="center">
+  function renderContactLeftSection() {
+    return (
+      <Grid item xs={12} md={6}>
+        <Box className={classes.bgImage} display="flex" justifyContent="center" alignItems="center">
+          <Box alignItems="center">
             <Typography className={classes.par1}> Address </Typography>
             <Typography className={classes.par2}>New York | Lagos | London | Paris</Typography>
             <Typography className={classes.par3}>Phone</Typography>
@@ -187,58 +181,72 @@ const Contact = () => {
             <Typography className={classes.par3}>Email</Typography>
             <Typography className={classes.par4}>info@prunedge.com</Typography>
           </Box>
-        </Grid>
-        <Grid item sm={12} md={6}>
-          <Box className={classes.bg2}>
-            <Typography className={classes.par5}>Get in Touch</Typography>
-            <Typography variant="body2" className={classes.par6}>
-              Get in touch to start a conversation with us. We review every inquiry and respond promptly.
-            </Typography>
-            <Typography className={classes.par7}>Message Title</Typography>
-            <form className={classes.form}>
-              <Grid container>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    elevation={0} 
-                    variant="filled" 
-                    label="Software Development" 
-                    name="text" 
-                    fullWidth
-                    value={values.text}
-                    onChange={handleChange}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    elevation={0} 
-                    variant="filled" 
-                    label="E-Mail" 
-                    name="email" 
-                    fullWidth
-                    value={values.email}
-                    onChange={handleChange}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    elevation={0} 
-                    variant="filled" 
-                    label="Drop your message here" 
-                    name="textArea" 
-                    multiline
-                    fullWidth
-                    rows={4}
-                    value={values.textArea}
-                    onChange={handleChange}
-                  />
-                </Grid>
+        </Box>
+      </Grid>
+    )
+  }
+
+  function renderContactRightSection() {
+    return (
+      <Grid item xs={12} md={6}>
+        <Box className={classes.bg2} >
+          <Typography className={classes.par5}>Get in Touch</Typography>
+          <Typography variant="body2" className={classes.par6}>
+            Get in touch to start a conversation with us. We review every inquiry and respond promptly.
+          </Typography>
+          <Typography className={classes.par7}>Message Title</Typography>
+          <form className={classes.form}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  elevation={0} 
+                  variant="filled" 
+                  label="Software Development" 
+                  name="text" 
+                  fullWidth
+                  value={values.text}
+                  onChange={handleChange}
+                />
               </Grid>
-            </form>
-              <Button variant="contained" color="primary" size="medium" classes={{ root: classes.btn }}>
-                    Send
-              </Button>
-          </Box>
-        </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  elevation={0} 
+                  variant="filled" 
+                  label="E-Mail" 
+                  name="email" 
+                  fullWidth
+                  value={values.email}
+                  onChange={handleChange}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  elevation={0} 
+                  variant="filled" 
+                  label="Drop your message here" 
+                  name="textArea" 
+                  multiline
+                  fullWidth
+                  rows={4}
+                  value={values.textArea}
+                  onChange={handleChange}
+                />
+              </Grid>
+            </Grid>
+          </form>
+            <Button variant="contained" color="primary" size="medium" classes={{ root: classes.btn }}>
+              Send
+            </Button>
+        </Box>
+      </Grid>
+    )
+  }
+
+  return (
+    <Box className={classes.bg}>
+      <Grid container>
+        {renderContactLeftSection()}
+        {renderContactRightSection()}
       </Grid>
     </Box>
   )

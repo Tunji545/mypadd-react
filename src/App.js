@@ -1,12 +1,12 @@
 import './App.css';
-import Footer from './components/Footer';
-import Home from './components/Home';
-import Navbar from './components/Navbar';
-import Events from './components/Events';
-import Honorees from './components/Honorees';
-import Shops from './components/Shops';
-import Blog from './components/Blog';
-import Contact from './components/Contact';
+import Footer from './components/Footer.jsx';
+import Home from './Pages/Home.jsx';
+import Navbar from './components/Navbar.jsx';
+import Events from './Pages/Events.jsx';
+import Honorees from './Pages/Honorees.jsx';
+import Shops from './Pages/Shops.jsx';
+import Blog from './Pages/Blog.jsx';
+import Contact from './Pages/Contact.jsx';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
 
 function App() {
