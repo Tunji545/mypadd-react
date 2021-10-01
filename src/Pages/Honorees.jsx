@@ -193,11 +193,10 @@ const Honorees = () => {
     }
   };
   
-  console.log('helb', getCurrentSize());
   const classes = useStyles();
 
-  return (
-    <>
+  function renderHonoreesHomeSection() {
+    return (
       <Box className={classes.bgImage1}>
         <Container maxWidth="lg">
           <Box className={classes.bg1}>
@@ -216,6 +215,11 @@ const Honorees = () => {
           </Box>
         </Container>
       </Box>
+    )
+  }
+
+  function renderHonoreesArticleSection() {
+    return (
       <Box className={classes.bg2}>
         <Container maxWidth="lg">
           <Grid container>
@@ -230,6 +234,11 @@ const Honorees = () => {
           </Grid>
         </Container>
       </Box>
+    )
+  }
+
+  function renderHonoreesGallerySection() {
+    return (
       <Box className={classes.bg3}>
         <Container>
           <Grid container>
@@ -272,6 +281,14 @@ const Honorees = () => {
           </Grid>
         </Container>
       </Box>
+    )
+    
+  }
+  return (
+    <>
+      {renderHonoreesHomeSection()}
+      {renderHonoreesArticleSection()}
+      {renderHonoreesGallerySection()}
     </>
   )
 }

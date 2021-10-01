@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Box, Container, Grid, IconButton, ImageListItemBar, ListSubheader, makeStyles, Typography } from '@material-ui/core';
-import Button from './reusables/Button';
+import Button from '../reusables/button';
 import EvBgImage1 from "../images/ev-bg-image1.svg";
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import { pastEventCards, upEvents } from '../utils/data';
-import Card from './reusables/Card';
+import Card from '../reusables/card';
 
 
 const useStyles = makeStyles(theme => ({
@@ -229,11 +229,10 @@ const Events = () => {
     }
   };
   
-  console.log('help', getCurrentSize());
   const classes = useStyles();
 
-  return (
-    <>
+  function renderEventHeaderSection() {
+    return (
       <Box className={classes.bg1Image}>
         <Container maxWidth="lg">
           <Box className={classes.bg1}>
@@ -275,6 +274,11 @@ const Events = () => {
           </Box>
         </Container>
       </Box>
+    )
+  }
+
+  function renderUpComingEventSection() {
+    return (
       <Box className={classes.btn3}>
         <Container maxWidth="lg">
           <Grid container>
@@ -329,6 +333,13 @@ const Events = () => {
           </Grid>
         </Container>
       </Box>
+    )
+  }
+
+  return (
+    <>
+      {renderEventHeaderSection()}
+      {renderUpComingEventSection()}
     </>
   )
 }
