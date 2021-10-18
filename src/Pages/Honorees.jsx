@@ -171,27 +171,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Honorees = () => {
-
-  const [currentWidth, setCurrentWidth] = useState(window.innerWidth);
-
-  window.onresize = window.onload = function () {
-    setCurrentWidth(this.innerWidth);
-  };
-  
-  const getCurrentSize = () => {
-    switch (Boolean(currentWidth)) {
-      case currentWidth >= 1280:
-      return 3;
-      case currentWidth >= 960 && currentWidth < 1280:
-      return 4;
-      case currentWidth >= 600 && currentWidth < 960:
-      return 6;
-      case currentWidth >= 500:
-      return 12;
-      default:
-      return 3;
-    }
-  };
   
   const classes = useStyles();
 
