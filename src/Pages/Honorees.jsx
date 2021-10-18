@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Box, Container, Grid, IconButton, ImageList, ImageListItem, ListSubheader, makeStyles, Typography } from '@material-ui/core';
 import honoreesBg1 from "../images/honoreesBg.svg";
 import Picture1 from "../images/picture1.svg";
